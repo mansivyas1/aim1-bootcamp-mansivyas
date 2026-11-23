@@ -1,0 +1,7 @@
+Python is easy.
+can understand easy.
+
+Python is a versatile programming language known for its readable syntax and rich standard library. 
+Developers use it for everything from quick automation scripts to large-scale web applications and data analysis.
+Working with text files is one of the most common tasks in programming. 
+By reading real paragraphs into a script, you can practice counting word frequencies, cleaning punctuation, and transforming strings into useful data structures.
