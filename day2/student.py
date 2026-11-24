@@ -1,3 +1,4 @@
+#task1
 class Student:
     def __init__(self, name, roll):
         self.name = name
@@ -23,20 +24,20 @@ class Student:
         return min(self.marks)
 
 if __name__ == "__main__":
-        student1 = Student("a", 101)
+        student1 = Student("amit", 101)
         student1.add_marks(90)
         student1.add_marks(80)
         print(f"{student1.name}'s, Average:{student1.average()}")
 
-        student2 = Student("b", 102)
+        student2 = Student("bob", 102)
         student2.add_marks(60)
         student2.add_marks(70)
         print(f"{student2.name}'s, Average:{student2.average()}")
                 
-        student3 = Student("c", 103)
+        student3 = Student("charmi", 103)
         print(f"{student3.name}'s, Average:{student3.average()}")
 
-
+#task2
 class Stu:
     def __init__(self, name, roll):
         self.name = name
@@ -46,14 +47,14 @@ class Stu:
     def __repr__(self):
             return f"student('{self.name}', {self.roll})"
     
-s1 = Stu("r", 1)
-s2 = Stu("o", 2)
+s1 = Stu("rohit", 1)
+s2 = Stu("aarti", 2)
 
 print(s1)
 student = [s1, s2]
 print(student)
 
-
+#task3
 class Person:
     def __init__(self, name):
         self.name = name  
@@ -77,8 +78,8 @@ class Teacher(Person):
          self.display_person()
          print("subject:", self.subject)
 
-su1 = Stud("m", 50)
-te1 = Teacher("y", "python")
+su1 = Stud("mansi", 50)
+te1 = Teacher("yash", "python")
 
 print("student details")
 su1.display_Stud()

@@ -1,3 +1,4 @@
+#task4
 import re
 from collections import Counter
 
@@ -32,9 +33,8 @@ domin_count = Counter(domins)
 print("email count by domin")
 print(domin_count)
 
-"""employees = {}
-employees["it"].append("rahul")"""
 
+#task5
 from collections import defaultdict
 
 data = [("it", "rahul"),
@@ -111,6 +111,7 @@ only_words = count2.keys() - count1.keys()
 print("words only in text2")
 print(only_words)
 
+#task6
 import random 
 from datetime import datetime, timedelta
 

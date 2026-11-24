@@ -1,3 +1,4 @@
+#task4
 for i in range(1, 100):
     if i % 15 == 0: print("FizzBuzz")
     elif i % 3 == 0: print("Fizz")
@@ -5,6 +6,7 @@ for i in range(1, 100):
     elif i % 7 == 0: print("Bazz")
     else: print(i)
 
+#task5
 string = "the cat sat" 
 reversed_string = string[:: -1]
 words = reversed_string.split()
@@ -30,7 +32,9 @@ def is_paildrome(word):
 print(is_paildrome("madam"))
 print(is_paildrome("hello"))
 
+#task6
 from typing import Dict, List, Union 
+
 def calculate_stats(numbers: List[Union[int, float]]) -> Dict[str, Union[int, float, str]]:
     """calculates the min, max and count of a list of numbers."""
     if not numbers: 
@@ -40,9 +44,16 @@ def calculate_stats(numbers: List[Union[int, float]]) -> Dict[str, Union[int, fl
             "mean":sum(numbers)/len(numbers),
             "count":len(numbers)
             }
+
 def safe_divide(a: float, b:float) -> Union[float, str]:
     """saafely divides two numbers and handles division by zero"""
     try: 
         return a / b
     except ZeroDivisionError:
         return "error: division by zero is not allowed"
+
+print(calculate_stats([10, 20, 30, 40, 50]))
+print(calculate_stats([]))
+
+print(safe_divide(10, 2))
+print(safe_divide(10, 0))

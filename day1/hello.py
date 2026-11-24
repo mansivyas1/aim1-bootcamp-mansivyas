@@ -1,3 +1,4 @@
+#task1
 print("hello, world")
 print("welcome to AI/ML bootcamp")
 name = "mansi"

@@ -1,3 +1,4 @@
+#task1
 numbers = [1, 2, 3, 4, 5]
 out = []
 for n in numbers:
@@ -54,9 +55,14 @@ numbers = [1, 2, 3]
 running_total = list(accumulate(numbers))
 print(running_total)
 
+#task2
 import string
 
-"""with open("text.txt", "r", encoding="utf-8") as file: 
+from pathlib import Path
+
+file_path = Path(__file__).parent / "text.txt"
+
+with open(file_path, "r", encoding="utf-8") as file: 
     text = file.read()
 
 text = text.lower()
@@ -71,17 +77,18 @@ count = {}
 for word in words: 
     count[word] = count.get(word, 0) + 1
 
-print(count)"""
+print(count)
 
-"""from collections import Counter
+from collections import Counter
 
-with open("text.txt") as f:
+with open(file_path) as f:
     text = f.read().lower()
 
 words = text.split()
 counts = Counter(words)
-print(counts.most_common(10))"""
+print(counts.most_common(10))
 
+#task3
 from itertools import combinations, permutations, product
 
 students = ["asha", "ravi", "meera", "dev", "priya"]
@@ -118,6 +125,3 @@ print("all possible feature subsets")
 for subset in all_subsets: 
     print(subset)
 print("total subset:", len(all_subsets))
-
-import re 
-from collections import Counter 

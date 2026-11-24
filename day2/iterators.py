@@ -1,3 +1,4 @@
+#task4
 it = iter([1, 2, 3])
 print(next(it))
 print(next(it))
@@ -12,7 +13,7 @@ while True:
             print("Iteration is finish")
         break
 
-
+#task5
 def fib_list(n):
     result = []
     a, b = 0, 1 
