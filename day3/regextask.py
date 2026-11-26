@@ -1,6 +1,12 @@
-#task4
+# task4
 import re
 from collections import Counter
+from collections import defaultdict
+from collections import namedtuple
+from collections import deque
+
+import random
+from datetime import datetime, timedelta
 
 text = """
 asha.sharma@codetrade.io wrote to ravi_k99@gmail.com
@@ -8,23 +14,23 @@ meera.p+work@company.co.in, phone 022-2555-1234
 dev@sub.domain.example.org and +91 98765 43210
 not.an.email@ nor @nothing.com -- watch these"""
 
-email_pattern = r'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}'
+email_pattern = r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"
 emails = re.findall(email_pattern, text)
 print("email addresses")
 print(emails)
 print("total emails", len(emails))
 
-phone_pattern = r'\+91\s?\d{5}\s?\d{5}|\d{3}-\d{4}'
+phone_pattern = r"\+91\s?\d{5}\s?\d{5}|\d{3}-\d{4}"
 phones = re.findall(phone_pattern, text)
 print("phone numbers")
 print(phones)
 
-email_pattern_groups = r'([A-Za-z0-9._%+-]+)@([A-Za-z0-9.-]+\.[A-Za-z]{2,})'
+email_pattern_groups = r"([A-Za-z0-9._%+-]+)@([A-Za-z0-9.-]+\.[A-Za-z]{2,})"
 email_details = re.findall(email_pattern_groups, text)
 print("username and domin")
 for username, domin in email_details:
     print("username", username)
-    print("domin",domin)
+    print("domin", domin)
 
 domins = [domin.lower() for username, domin in email_details]
 
@@ -34,14 +40,15 @@ print("email count by domin")
 print(domin_count)
 
 
-#task5
-from collections import defaultdict
+# task5
 
-data = [("it", "rahul"),
-        ("hr", "priya"),
-        ("sales", "neha"),
-        ("hr", "karan"),
-        ("it", "ravi")]
+data = [
+    ("it", "rahul"),
+    ("hr", "priya"),
+    ("sales", "neha"),
+    ("hr", "karan"),
+    ("it", "ravi"),
+]
 
 employees = defaultdict(list)
 
@@ -50,14 +57,15 @@ for department, employee in data:
 
 print(dict(employees))
 
-from collections import namedtuple
 
 Person = namedtuple("Person", ["name", "age", "city"])
 
-people = [("rahul", 22, "ahemdabad"),
-          ("priya", 24, "surat"),
-          ("amit", 23, "gandhinagar"),
-          ("neha", 25, "gadhinagar")]
+people = [
+    ("rahul", 22, "ahemdabad"),
+    ("priya", 24, "surat"),
+    ("amit", 23, "gandhinagar"),
+    ("neha", 25, "gadhinagar"),
+]
 
 people_named = [Person(*person) for person in people]
 print("all people")
@@ -75,7 +83,6 @@ p = people_named[0]
 print("using index", p[2])
 print("using name", p.city)
 
-from collections import deque
 
 search_history = deque(maxlen=5)
 searches = ["python", " java", "css", "js", "html", "sql"]
@@ -86,7 +93,7 @@ for search in searches:
 print("final last 5 searches")
 print(list(search_history))
 
-from collections import Counter
+
 text1 = "python is easy and python is powerful"
 text2 = "python is popular and java is powerful"
 
@@ -111,37 +118,41 @@ only_words = count2.keys() - count1.keys()
 print("words only in text2")
 print(only_words)
 
-#task6
-import random 
-from datetime import datetime, timedelta
+# task6
 
 levels = ["INFO", "WARN", "ERROR"]
 
 messages = {
-    "INFO": ["Application started",
-             "User logged in",
-             "File uploaded succesfully",
-             "Data processed successfully",
-             "User looed out"],
-    "WARN": ["Memory usage is high",
-             "Slow network connection",
-             "Disk space is low",
-             "Invalid input detected"],
-    "ERROR": ["Database connection failed",
-              "file not found",
-              "Payment processing failed",
-              "Authentication failed"]}
+    "INFO": [
+        "Application started",
+        "User logged in",
+        "File uploaded succesfully",
+        "Data processed successfully",
+        "User looed out",
+    ],
+    "WARN": [
+        "Memory usage is high",
+        "Slow network connection",
+        "Disk space is low",
+        "Invalid input detected",
+    ],
+    "ERROR": [
+        "Database connection failed",
+        "file not found",
+        "Payment processing failed",
+        "Authentication failed",
+    ],
+}
 start_time = datetime(2026, 11, 23, 8, 0, 0)
 
-with open("app.log","w", encoding="utf-8") as file:
+with open("app.log", "w", encoding="utf-8") as file:
     for i in range(250):
         timestamp = start_time + timedelta(minutes=i)
 
     level = random.choice(levels)
     message = random.choice(messages[level])
 
-    log_line = (f"{timestamp.strftime('%Y-%m-%d %H:%M:%S')}"
-            f"{level} {message}\n")
+    log_line = f"{timestamp.strftime('%Y-%m-%d %H:%M:%S')}" f"{level} {message}\n"
 
     file.write(log_line)
 
@@ -164,7 +175,6 @@ with open("app.log", "r", encoding="utf-8") as file:
 print("total newline characters", content.count("\n"))
 print("total file characters", len(content))
 
-import re
 
 pattern = r"(/d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) (INFO|WARN|ERROR) (.+)"
 
@@ -178,9 +188,7 @@ with open("app.log", "r", encoding="utf-8") as file:
             level = match.group(2)
             message = match.group(3)
             timestamp = datetime.strptime(timestamp_str, "%Y-%m-%D %H:%M:%S")
-            entries.append({"timestamp": timestamp,
-                            "level": level,
-                            "message": message})
+            entries.append({"timestamp": timestamp, "level": level, "message": message})
 
 print("total parsed entries", len(entries))
 print("first 5 parsed entries")
@@ -197,7 +205,7 @@ for level, count in level_counts.items():
 hour_counts = Counter(entry["timestamp"].hour for entry in entries)
 print("hourly log counts")
 
-for hour,count in sorted(hour_counts.items()):
+for hour, count in sorted(hour_counts.items()):
     print("{hour}:00 - {count}entries")
 
 busiest_hour = hour_counts.most_common(1)
@@ -218,7 +226,7 @@ error_entries = [entry for entry in entries if entry["level"] == "ERROR"]
 error_entries.sort(key=lambda x: x["timestamp"])
 longest_gap = timedelta(0)
 for i in range(1, len(error_entries)):
-    gap = (error_entries[i]["timestamp"] - error_entries[i - 1]["timestamp"])
+    gap = error_entries[i]["timestamp"] - error_entries[i - 1]["timestamp"]
     if gap > longest_gap:
         longest_gap = gap
 print("error analysis")

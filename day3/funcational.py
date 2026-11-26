@@ -1,4 +1,11 @@
-#task1
+from functools import reduce
+import string
+from collections import Counter
+from itertools import combinations, permutations, product
+from itertools import accumulate
+from pathlib import Path
+
+# task1
 numbers = [1, 2, 3, 4, 5]
 out = []
 for n in numbers:
@@ -11,7 +18,6 @@ names = ["a", "B", "c", "d", "E"]
 uppercase_names = [name.upper() for name in names]
 print(uppercase_names)
 
-from itertools import pairwise
 
 list1 = [10, 50, 30, 80, 55]
 list2 = [60, 20, 40, 70, 90]
@@ -23,20 +29,22 @@ for text in sentences:
     if len(text.split()) > 4:
         print(text)
 
-from functools import reduce
 
-numbers = [2, 3, 4, 5,]
+numbers = [
+    2,
+    3,
+    4,
+    5,
+]
 products = reduce(lambda x, y: x * y, numbers)
 print(products)
 
-items = [
-    {"name" : "books", "price" : 250},
-    {"name" : "notebook", "price" : 100}]
+items = [{"name": "books", "price": 250}, {"name": "notebook", "price": 100}]
 
-total_price =  sum(item.get("price", 0) for item in items)
+total_price = sum(item.get("price", 0) for item in items)
 print(total_price)
 
-nested_list = [[1,2], [3,4], [5,6]]
+nested_list = [[1, 2], [3, 4], [5, 6]]
 flat = [item for sublist in nested_list for item in sublist]
 print(flat)
 
@@ -47,22 +55,19 @@ print(length_map)
 items = [0, "apple", "banana", [], 50, "", None]
 truthy_item = [x for x in items if x]
 print(truthy_item)
-falsy_item = [x for x in items if not x ]
+falsy_item = [x for x in items if not x]
 print(falsy_item)
 
-from itertools import accumulate 
+
 numbers = [1, 2, 3]
 running_total = list(accumulate(numbers))
 print(running_total)
 
-#task2
-import string
-
-from pathlib import Path
+# task2
 
 file_path = Path(__file__).parent / "text.txt"
 
-with open(file_path, "r", encoding="utf-8") as file: 
+with open(file_path, "r", encoding="utf-8") as file:
     text = file.read()
 
 text = text.lower()
@@ -74,12 +79,11 @@ words = text.split()
 
 count = {}
 
-for word in words: 
+for word in words:
     count[word] = count.get(word, 0) + 1
 
 print(count)
 
-from collections import Counter
 
 with open(file_path) as f:
     text = f.read().lower()
@@ -88,8 +92,7 @@ words = text.split()
 counts = Counter(words)
 print(counts.most_common(10))
 
-#task3
-from itertools import combinations, permutations, product
+# task3
 
 students = ["asha", "ravi", "meera", "dev", "priya"]
 
@@ -118,10 +121,10 @@ print("total shirt combinations", len(shirt_combinations))
 features = ["age", "salary", "experience", "education"]
 all_subsets = []
 
-for r in range(len(features) +1):
+for r in range(len(features) + 1):
     all_subsets.extend(combinations(features, r))
 
 print("all possible feature subsets")
-for subset in all_subsets: 
+for subset in all_subsets:
     print(subset)
 print("total subset:", len(all_subsets))
